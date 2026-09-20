@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RPR Digitals — premium digital marketing, branding, websites and creative content solutions.">
+  <title>RPR-Digitals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070707;
+      --surface:#101010;
+      --surface-2:#151515;
+      --text:#f7f2e8;
+      --muted:#aaa39a;
+      --gold:#f5b942;
+      --gold-2:#ffdf8a;
+      --red:#a91518;
+      --line:rgba(255,255,255,.10);
+      --glass:rgba(10,10,10,.68);
+      --max:1180px;
+      --radius:24px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:
+        radial-gradient(circle at 80% 8%, rgba(169,21,24,.18), transparent 26%),
+        radial-gradient(circle at 15% 18%, rgba(245,185,66,.10), transparent 25%),
+        var(--bg);
+      color:var(--text);
+      font-family:Inter,system-ui,sans-serif;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+      background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+      background-size:70px 70px;
+      mask-image:linear-gradient(to bottom,black,transparent 78%);
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--max),92%);margin:auto}
+    .nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      backdrop-filter:blur(18px);
+      background:rgba(7,7,7,.70);
+      border-bottom:1px solid transparent;
+      transition:.3s;
+    }
+    .nav.scrolled{border-color:var(--line);background:rgba(7,7,7,.88)}
+    .nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-family:"Space Grotesk";font-weight:700;letter-spacing:.5px}
+    .brand img{width:46px;height:46px;object-fit:contain}
+    .brand span{font-size:1.1rem}
+    .brand b{color:var(--gold)}
+    .nav-links{display:flex;gap:28px;align-items:center}
+    .nav-links a{font-size:.9rem;color:#d7d2c9;transition:.25s}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-cta,.btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:13px 20px;border-radius:999px;font-weight:700;font-size:.88rem;
+      transition:transform .25s,box-shadow .25s,background .25s;
+    }
+    .nav-cta,.btn-primary{
+      color:#080808;background:linear-gradient(135deg,var(--gold-2),var(--gold));
+      box-shadow:0 12px 35px rgba(245,185,66,.18);
+    }
+    .nav-cta:hover,.btn:hover{transform:translateY(-2px)}
+    .menu{display:none;background:none;border:0;color:white;font-size:1.5rem}
+
+    .hero{min-height:100vh;padding:145px 0 90px;display:grid;align-items:center;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:55px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;padding:7px 12px;
+      border:1px solid rgba(245,185,66,.28);border-radius:999px;
+      background:rgba(245,185,66,.07);color:var(--gold-2);font-size:.78rem;font-weight:700;
+      text-transform:uppercase;letter-spacing:1.4px;
+    }
+    .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px var(--gold)}
+    h1{
+      font-family:"Space Grotesk";font-size:clamp(3.3rem,7vw,6.8rem);
+      line-height:.93;letter-spacing:-4px;margin:25px 0;
+    }
+    h1 span{
+      color:transparent;
+      -webkit-text-stroke:1px rgba(255,255,255,.7);
+      text-shadow:0 0 35px rgba(245,185,66,.08);
+    }
+    .hero-copy{max-width:670px;color:var(--muted);font-size:1.08rem}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn-secondary{border:1px solid var(--line);background:rgba(255,255,255,.03);color:white}
+    .hero-meta{display:flex;gap:30px;margin-top:38px;padding-top:24px;border-top:1px solid var(--line)}
+    .meta strong{display:block;font-family:"Space Grotesk";font-size:1.45rem;color:white}
+    .meta small{color:var(--muted);font-size:.75rem}
+    .hero-visual{position:relative;display:grid;place-items:center}
+    .logo-orbit{
+      width:min(470px,80vw);aspect-ratio:1;border-radius:50%;
+      background:radial-gradient(circle,rgba(245,185,66,.10),rgba(169,21,24,.07) 42%,transparent 68%);
+      border:1px solid rgba(245,185,66,.15);
+      box-shadow:inset 0 0 100px rgba(245,185,66,.05),0 0 100px rgba(169,21,24,.13);
+      position:relative;
+      animation:float 6s ease-in-out infinite;
+    }
+    .logo-orbit::before,.logo-orbit::after{
+      content:"";position:absolute;inset:10%;border:1px solid rgba(255,255,255,.07);border-radius:50%;
+    }
+    .logo-orbit::after{inset:23%;border-color:rgba(245,185,66,.12)}
+    .hero-logo{
+      position:absolute;inset:12%;width:76%;height:76%;margin:auto;object-fit:contain;
+      filter:drop-shadow(0 20px 40px rgba(0,0,0,.7)) drop-shadow(0 0 24px rgba(245,185,66,.22));
+    }
+    .floating-card{
+      position:absolute;right:-10px;bottom:6%;padding:15px 18px;border:1px solid var(--line);
+      background:var(--glass);backdrop-filter:blur(16px);border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.4);
+    }
+    .floating-card small{color:var(--muted);display:block}.floating-card strong{color:var(--gold-2)}
+    .scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);color:#777;font-size:.72rem;letter-spacing:2px;text-transform:uppercase}
+
+    section{padding:105px 0}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:45px}
+    .kicker{color:var(--gold);font-size:.75rem;text-transform:uppercase;letter-spacing:2px;font-weight:800}
+    h2{font-family:"Space Grotesk";font-size:clamp(2.1rem,4vw,3.8rem);line-height:1.02;letter-spacing:-2px;margin-top:10px}
+    .section-head p{max-width:480px;color:var(--muted)}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{
+      padding:30px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+      border-radius:var(--radius);position:relative;overflow:hidden;transition:.35s;
+    }
+    .card::before{content:"";position:absolute;width:140px;height:140px;border-radius:50%;background:rgba(245,185,66,.07);filter:blur(20px);right:-60px;top:-60px}
+    .card:hover{transform:translateY(-7px);border-color:rgba(245,185,66,.3);box-shadow:0 25px 60px rgba(0,0,0,.28)}
+    .icon{font-size:1.6rem;margin-bottom:22px}
+    .card h3{font-family:"Space Grotesk";font-size:1.25rem;margin-bottom:10px}
+    .card p{color:var(--muted);font-size:.93rem}
+    .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+    .tag{font-size:.68rem;color:#c9c4bc;border:1px solid var(--line);padding:5px 8px;border-radius:999px}
+
+    .showcase{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+    .project{min-height:390px;border-radius:28px;border:1px solid var(--line);padding:32px;position:relative;overflow:hidden;background:#0e0e0e}
+    .project.large{min-height:520px;background:
+      radial-gradient(circle at 70% 30%,rgba(245,185,66,.22),transparent 25%),
+      radial-gradient(circle at 30% 80%,rgba(169,21,24,.22),transparent 30%),#0d0d0d}
+    .project .num{color:#777;font-size:.75rem;letter-spacing:2px}
+    .project h3{font-family:"Space Grotesk";font-size:2rem;margin:15px 0 8px}
+    .project p{color:var(--muted);max-width:470px}
+    .project-logo{position:absolute;width:48%;max-width:310px;right:7%;bottom:4%;filter:drop-shadow(0 18px 35px rgba(0,0,0,.65))}
+    .mini-projects{display:grid;gap:18px}
+    .mini-project{min-height:250px}
+    .mini-project h3{font-size:1.5rem}
+    .mini-project .line{height:1px;background:var(--line);margin:22px 0}
+    .arrow{position:absolute;right:25px;top:25px;color:var(--gold);font-size:1.3rem}
+
+    .process{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .step{padding:30px 22px;border-right:1px solid var(--line)}
+    .step:last-child{border-right:0}
+    .step-number{color:var(--gold);font-size:.72rem;letter-spacing:2px}
+    .step h3{font-family:"Space Grotesk";margin:13px 0 7px}.step p{color:var(--muted);font-size:.87rem}
+
+    .hostel{
+      border:1px solid rgba(245,185,66,.18);border-radius:30px;padding:45px;
+      background:linear-gradient(110deg,rgba(169,21,24,.16),rgba(245,185,66,.06),rgba(255,255,255,.025));
+      display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;
+    }
+    .hostel h2{max-width:650px}.hostel p{color:var(--muted);max-width:650px;margin:17px 0 24px}
+    .hostel-badges{display:flex;flex-wrap:wrap;gap:8px}.hostel-badges span{border:1px solid var(--line);padding:7px 11px;border-radius:999px;font-size:.72rem;color:#ddd}
+    .hostel-mark{width:180px;opacity:.95;filter:drop-shadow(0 15px 30px rgba(0,0,0,.5))}
+
+    .contact{
+      text-align:center;padding:85px 30px;border-radius:32px;border:1px solid var(--line);
+      background:radial-gradient(circle at 50% 0%,rgba(245,185,66,.14),transparent 40%),#0d0d0d;
+    }
+    .contact h2{max-width:760px;margin:12px auto}
+    .contact p{color:var(--muted);max-width:620px;margin:18px auto 28px}
+    footer{padding:30px 0 45px;color:#777;font-size:.8rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:22px}
+    .footer-links{display:flex;gap:20px}.footer-links a:hover{color:var(--gold)}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @media(max-width:900px){
+      .nav-links{display:none}.menu{display:block}
+      .nav-links.open{display:flex;position:absolute;top:78px;left:0;right:0;padding:20px;flex-direction:column;background:#0a0a0a;border-bottom:1px solid var(--line)}
+      .hero-grid,.showcase{grid-template-columns:1fr}.hero{padding-top:120px}.hero-visual{order:-1}
+      .hero-visual .logo-orbit{width:360px}
+      .services{grid-template-columns:repeat(2,1fr)}.process{grid-template-columns:repeat(2,1fr)}
+      .step:nth-child(2){border-right:0}.step:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .hostel{grid-template-columns:1fr}.hostel-mark{width:130px}
+    }
+    @media(max-width:620px){
+      h1{letter-spacing:-2px}.hero-meta{gap:18px}.meta strong{font-size:1.1rem}
+      .services{grid-template-columns:1fr}.process{grid-template-columns:1fr}
+      .step{border-right:0!important;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}
+      .project.large{min-height:450px}.project-logo{width:62%}
+      .section-head{display:block}.section-head p{margin-top:18px}
+      .footer-inner{flex-direction:column}.floating-card{right:0}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <img src="assets/rpr-digitals-logo.png" alt="RPR Digitals logo">
+        <span>RPR <b>Digitals</b></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="hostel.html">RPR Gent's Hostel</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#contact">Start a Project ↗</a>
+      </div>
+      <button class="menu" id="menu" aria-label="Open menu">☰</button>
+    </div>
+  </nav>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><i></i> Creative Digital Agency</div>
+          <h1>Your great business<br><span>deserves a powerful digital presence.</span></h1>
+          <p class="hero-copy">RPR Digitals builds premium digital identities, high-converting websites, social media content and performance campaigns that turn attention into business.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Build With RPR ↗</a>
+            <a href="#work" class="btn btn-secondary">Explore Our Work</a>
+          </div>
+          <div class="hero-meta">
+            <div class="meta"><strong>Branding</strong><small>Identity & Visuals</small></div>
+            <div class="meta"><strong>Digital</strong><small>Web & Marketing</small></div>
+            <div class="meta"><strong>Content</strong><small>Social & Video</small></div>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="logo-orbit">
+            <img class="hero-logo" src="assets/rpr-digitals-logo.png" alt="RPR Digitals tiger monogram">
+          </div>
+          <div class="floating-card"><small>Built for</small><strong>Impact • Growth • Recall</strong></div>
+        </div>
+      </div>
+      <div class="scroll">Scroll to explore ↓</div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="kicker">What we do</div><h2>Digital solutions<br>with a sharp edge.</h2></div>
+          <p>From your first logo to your next campaign, we combine strategy, design and technology into one consistent brand experience.</p>
+        </div>
+        <div class="services">
+          <article class="card reveal"><div class="icon">✦</div><h3>Brand Identity</h3><p>Logos, visual systems, brand guidelines and premium campaign creatives designed for recognition.</p><div class="tags"><span class="tag">Logo Design</span><span class="tag">Brand Kit</span><span class="tag">Posters</span></div></article>
+          <article class="card reveal"><div class="icon">⌁</div><h3>Web Experiences</h3><p>Modern, responsive landing pages and business websites built to look premium and convert visitors.</p><div class="tags"><span class="tag">Landing Pages</span><span class="tag">UI/UX</span><span class="tag">SEO Ready</span></div></article>
+          <article class="card reveal"><div class="icon">◉</div><h3>Social Media</h3><p>Scroll-stopping content systems for Instagram, Facebook, YouTube and WhatsApp Business.</p><div class="tags"><span class="tag">Reels</span><span class="tag">Campaigns</span><span class="tag">Content</span></div></article>
+          <article class="card reveal"><div class="icon">↗</div><h3>Performance Marketing</h3><p>Campaign strategy and creative testing focused on qualified leads, enquiries and measurable growth.</p><div class="tags"><span class="tag">Meta Ads</span><span class="tag">Lead Gen</span><span class="tag">Analytics</span></div></article>
+          <article class="card reveal"><div class="icon">▣</div><h3>Creative Production</h3><p>Cinematic promotional visuals, thumbnails, ad creatives and short-form video concepts for brands.</p><div class="tags"><span class="tag">Video</span><span class="tag">Thumbnails</span><span class="tag">AI Creative</span></div></article>
+          <article class="card reveal"><div class="icon">⌘</div><h3>Business Systems</h3><p>Digital workflows, forms, dashboards and lightweight automation that make everyday operations easier.</p><div class="tags"><span class="tag">Automation</span><span class="tag">Dashboards</span><span class="tag">Forms</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="kicker">Selected work</div><h2>Ideas that look<br>like a business.</h2></div>
+          <p>A flexible showcase area for your real client projects. Replace these cards with portfolio screenshots, case studies or campaign results.</p>
+        </div>
+        <div class="showcase">
+          <article class="project large reveal">
+            <span class="num">01 / BRAND + DIGITAL</span>
+            <h3>RPR Gent's Hostel</h3>
+            <p>Branding, campaign creatives, social content and a premium web presence for a modern accommodation business.</p>
+            <div class="tags"><span class="tag">Branding</span><span class="tag">Website</span><span class="tag">Social Ads</span></div>
+            <img class="project-logo" src="assets/rpr-digitals-logo.png" alt="">
+          </article>
+          <div class="mini-projects">
+            <article class="project mini-project reveal"><span class="arrow">↗</span><span class="num">02 / SOCIAL</span><h3>Content Systems</h3><div class="line"></div><p>Reels, posters, thumbnails and campaign templates built for consistent publishing.</p></article>
+            <article class="project mini-project reveal"><span class="arrow">↗</span><span class="num">03 / WEB</span><h3>Conversion Landing Pages</h3><div class="line"></div><p>Focused landing pages with clear messaging, strong CTAs and mobile-first UX.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><div class="kicker">Our process</div><h2>Simple. Strategic.<br>Built to move.</h2></div>
+          <p>A straightforward workflow that keeps the project focused from discovery to launch.</p>
+        </div>
+        <div class="process">
+          <div class="step reveal"><div class="step-number">01 — DISCOVER</div><h3>Understand</h3><p>Goals, audience, offer, competitors and brand direction.</p></div>
+          <div class="step reveal"><div class="step-number">02 — CREATE</div><h3>Design</h3><p>Creative concepts, messaging and visual systems shaped around your objective.</p></div>
+          <div class="step reveal"><div class="step-number">03 — BUILD</div><h3>Develop</h3><p>Responsive digital experiences and campaign assets ready for real use.</p></div>
+          <div class="step reveal"><div class="step-number">04 — GROW</div><h3>Launch</h3><p>Publish, test, measure and improve based on audience response.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="hostel reveal">
+          <div>
+            <div class="kicker">Featured business</div>
+            <h2>RPR Gent's Hostel — another brand powered by RPR Digitals.</h2>
+            <p>Use this section to connect your agency with your own hostel brand, campaign landing page, booking funnel or future client case study.</p>
+            <div class="hostel-badges"><span>Brand Strategy</span><span>Creative Ads</span><span>Website</span><span>Lead Generation</span></div>
+            <div style="margin-top:25px"><a href="hostel.html" class="btn btn-primary">View Hostel Website ↗</a></div>
+          </div>
+          <img class="hostel-mark" src="assets/rpr-digitals-logo.png" alt="RPR brand mark">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact reveal">
+          <div class="kicker">Let's create</div>
+          <h2>Have a business idea?<br>Let's turn it into a digital brand.</h2>
+          <p>Tell us what you are building, what you want to achieve and where you want your brand to go.</p>
+          <div class="hero-actions" style="justify-content:center">
+            <a class="btn btn-primary" href="mailto:rprdigitals@gmail.com">Email RPR Digitals ↗</a>
+            <a class="btn btn-secondary" href="https://wa.me/919700080503" target="_blank" rel="noopener">WhatsApp Us ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> RPR Digitals. All rights reserved.</div>
+      <div class="footer-links"><a href="#home">Home</a><a href="#services">Services</a><a href="#work">Work</a><a href="#contact">Contact</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const menu = document.getElementById('menu');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    menu.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, {threshold: .12});
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Subtle cursor glow on desktop
+    const glow = document.createElement('div');
+    glow.style.cssText = 'position:fixed;width:180px;height:180px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,rgba(245,185,66,.06),transparent 68%);transform:translate(-50%,-50%);display:none;';
+    document.body.appendChild(glow);
+    if (window.matchMedia('(pointer:fine)').matches) {
+      glow.style.display = 'block';
+      window.addEventListener('pointermove', e => {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+      });
+    }
+  </script>
+</body>
+</html>

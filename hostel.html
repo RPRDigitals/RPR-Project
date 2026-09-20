@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="RPR Gent's Hostel — safe, comfortable and affordable hostel living near Hindustan University, Padur OMR.">
+<title>RPR Gent's Hostel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070707;--card:#111;--gold:#f4b942;--gold2:#ffe39a;--red:#a91418;--text:#f7f3ea;--muted:#aaa39a;--line:rgba(255,255,255,.1);--max:1180px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;background:radial-gradient(circle at 85% 5%,rgba(169,20,24,.22),transparent 28%),var(--bg);color:var(--text);line-height:1.6}a{text-decoration:none;color:inherit}.container{width:min(var(--max),92%);margin:auto}
+.nav{position:fixed;z-index:50;top:0;left:0;right:0;background:rgba(7,7,7,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.navin{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;font-family:"Space Grotesk";font-weight:700}.brand img{width:46px;height:46px;object-fit:contain}.brand b{color:var(--gold)}.links{display:flex;gap:25px;align-items:center}.links a{font-size:.88rem;color:#ddd}.links a:hover{color:var(--gold)}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:999px;font-weight:800;font-size:.86rem;transition:.25s}.primary{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#090909;box-shadow:0 10px 30px rgba(244,185,66,.18)}.secondary{border:1px solid var(--line);background:#ffffff08}.btn:hover{transform:translateY(-2px)}
+.hero{min-height:100vh;padding:145px 0 80px;display:grid;align-items:center;background:linear-gradient(90deg,rgba(0,0,0,.8),rgba(0,0,0,.25)),radial-gradient(circle at 70% 45%,rgba(244,185,66,.13),transparent 30%)}.hero-grid{display:grid;grid-template-columns:1fr .9fr;gap:55px;align-items:center}.eyebrow,.kicker{color:var(--gold);font-size:.74rem;letter-spacing:2px;text-transform:uppercase;font-weight:800}.eyebrow{display:inline-flex;border:1px solid #f4b94235;padding:8px 12px;border-radius:999px;background:#f4b9420c}.hero h1{font-family:"Space Grotesk";font-size:clamp(3.2rem,7vw,6.5rem);line-height:.92;letter-spacing:-4px;margin:22px 0}.hero h1 span{color:var(--gold)}.hero p{color:var(--muted);font-size:1.08rem;max-width:650px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.trust{display:flex;gap:25px;margin-top:35px;padding-top:22px;border-top:1px solid var(--line)}.trust strong{display:block;font-family:"Space Grotesk";font-size:1.15rem}.trust small{color:var(--muted);font-size:.72rem}
+.logo-wrap{width:min(470px,82vw);aspect-ratio:1;margin:auto;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,rgba(244,185,66,.12),rgba(169,20,24,.08),transparent 67%);border:1px solid #f4b94225;box-shadow:0 0 100px #a9141822}.logo-wrap img{width:78%;filter:drop-shadow(0 20px 35px #000) drop-shadow(0 0 25px #f4b94230)}
+section{padding:100px 0}.head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}.head h2{font-family:"Space Grotesk";font-size:clamp(2.2rem,4vw,3.7rem);line-height:1;letter-spacing:-2px;margin-top:9px}.head p{max-width:500px;color:var(--muted)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{border:1px solid var(--line);background:linear-gradient(145deg,#ffffff08,#ffffff02);border-radius:22px;padding:27px;transition:.3s}.card:hover{transform:translateY(-5px);border-color:#f4b94255}.icon{font-size:1.6rem;color:var(--gold);margin-bottom:17px}.card h3{font-family:"Space Grotesk";margin-bottom:7px}.card p{color:var(--muted);font-size:.9rem}
+.pricing{display:grid;grid-template-columns:1fr 1.2fr;gap:18px}.price-intro{border:1px solid #f4b94230;border-radius:26px;padding:35px;background:linear-gradient(140deg,#a9141822,#f4b94209)}.price-intro h3{font-family:"Space Grotesk";font-size:2rem}.price{font-size:3.4rem;font-family:"Space Grotesk";color:var(--gold);margin:12px 0}.price-intro p{color:var(--muted)}.price-table{border:1px solid var(--line);border-radius:26px;overflow:hidden}.row{display:grid;grid-template-columns:1.5fr 1fr 1fr;padding:19px 22px;border-bottom:1px solid var(--line)}.row:last-child{border:0}.row.headrow{font-weight:800;background:#ffffff08;color:var(--gold2)}.row span:not(:first-child){text-align:right}.note{color:var(--muted);font-size:.78rem;margin-top:13px}
+.food{display:grid;grid-template-columns:1fr 1fr;gap:18px}.foodbox{padding:34px;border-radius:26px;border:1px solid var(--line);background:#ffffff05}.foodbox h3{font-family:"Space Grotesk";font-size:1.6rem;margin-bottom:10px}.foodbox p{color:var(--muted)}.days{display:grid;gap:10px;margin-top:18px}.days div{display:flex;justify-content:space-between;padding:12px 14px;border:1px solid var(--line);border-radius:12px}.days b{color:var(--gold)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.photo{height:250px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(145deg,#a9141820,#f4b94210),#111;display:grid;place-items:center;text-align:center;padding:20px;overflow:hidden}.photo div{color:#aaa}.photo strong{display:block;color:white;font-family:"Space Grotesk";font-size:1.15rem;margin-bottom:4px}.photo small{color:#888}.photo:first-child{grid-column:span 2;height:330px}
+.location{display:grid;grid-template-columns:1fr 1fr;gap:18px}.map{min-height:350px;border-radius:26px;border:1px solid var(--line);background:radial-gradient(circle at 50% 45%,#f4b9421a,transparent 25%),linear-gradient(135deg,#141414,#0b0b0b);display:grid;place-items:center;text-align:center}.map .pin{font-size:3rem;color:var(--gold)}.locbox{padding:35px;border:1px solid var(--line);border-radius:26px}.locbox h3{font-family:"Space Grotesk";font-size:1.8rem}.locbox p{color:var(--muted);margin:13px 0 20px}.bullets{display:grid;gap:10px;color:#ddd}.bullets span::before{content:"✓";color:var(--gold);margin-right:9px;font-weight:800}
+.cta{padding:75px 25px;border-radius:30px;text-align:center;border:1px solid #f4b94230;background:radial-gradient(circle at 50% 0,#f4b94218,transparent 45%),#0d0d0d}.cta h2{font-family:"Space Grotesk";font-size:clamp(2.3rem,5vw,4.4rem);line-height:1}.cta p{color:var(--muted);max-width:620px;margin:16px auto 25px}
+footer{padding:30px 0 45px;color:#777;font-size:.8rem;border-top:1px solid var(--line)}.foot{display:flex;justify-content:space-between}.foot a:hover{color:var(--gold)}
+@media(max-width:850px){.links{display:none}.hero-grid,.pricing,.food,.location{grid-template-columns:1fr}.hero{padding-top:120px}.logo-wrap{width:360px}.features{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:1fr 1fr}.photo:first-child{grid-column:span 2}.head{display:block}.head p{margin-top:16px}}
+@media(max-width:600px){.features,.gallery{grid-template-columns:1fr}.photo:first-child{grid-column:auto}.photo{height:220px}.trust{gap:13px}.hero h1{letter-spacing:-2px}.row{grid-template-columns:1.35fr 1fr 1fr;padding:15px 13px;font-size:.82rem}.foot{flex-direction:column;gap:10px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="container navin">
+<a class="brand" href="index.html"><img src="assets/rpr-digitals-logo.png" alt="RPR logo"><span>RPR <b>Gent's Hostel</b></span></a>
+<div class="links"><a href="index.html">RPR-Digitals</a><a href="#facilities">Facilities</a><a href="#rooms">Rooms & Pricing</a><a href="#food">Food</a><a href="#location">Location</a><a class="btn primary" href="#book">Book Your Bed ↗</a></div>
+</div></nav>
+
+<main>
+<section class="hero"><div class="container hero-grid">
+<div>
+<div class="eyebrow">Near Hindustan University • Padur OMR</div>
+<h1>Safe.<br>Comfortable.<br><span>Affordable.</span></h1>
+<p>Premium gents hostel living designed for students and working professionals. Comfortable rooms, essential facilities, security and everyday convenience — all in one place.</p>
+<div class="actions"><a class="btn primary" href="#book">Book Your Bed ↗</a><a class="btn secondary" href="#rooms">View Rooms & Pricing</a></div>
+<div class="trust"><div><strong>₹6,000+</strong><small>Rent starting from</small></div><div><strong>24/7</strong><small>Security focused</small></div><div><strong>3×</strong><small>Meals available</small></div></div>
+</div>
+<div class="logo-wrap"><img src="assets/rpr-digitals-logo.png" alt="RPR Gent's Hostel brand mark"></div>
+</div></section>
+
+<section id="facilities"><div class="container">
+<div class="head"><div><div class="kicker">Why choose us</div><h2>Everything you need<br>for daily living.</h2></div><p>A practical hostel experience with the facilities students and professionals actually use.</p></div>
+<div class="features">
+<div class="card"><div class="icon">🔐</div><h3>Biometric Entry</h3><p>Fingerprint-based access designed to provide controlled and convenient entry.</p></div>
+<div class="card"><div class="icon">📶</div><h3>High-Speed WiFi</h3><p>Stay connected for classes, remote work, entertainment and everyday needs.</p></div>
+<div class="card"><div class="icon">🍛</div><h3>3 Times Food</h3><p>Regular North & South Indian meal options for a convenient daily routine.</p></div>
+<div class="card"><div class="icon">🧺</div><h3>Washing Machine</h3><p>Laundry convenience so you can spend less time on routine chores.</p></div>
+<div class="card"><div class="icon">🔒</div><h3>Personal Lockers</h3><p>Dedicated storage space for your important personal belongings.</p></div>
+<div class="card"><div class="icon">🛏️</div><h3>Comfortable Rooms</h3><p>Sharing options designed around different budgets and living preferences.</p></div>
+</div></div></section>
+
+<section id="rooms"><div class="container">
+<div class="head"><div><div class="kicker">Rooms & pricing</div><h2>Choose the sharing<br>that fits you.</h2></div><p>Transparent starting prices. Contact us to confirm current availability and room-specific details.</p></div>
+<div class="pricing">
+<div class="price-intro"><div class="kicker">Starting from</div><div class="price">₹6,000</div><h3>per month</h3><p>Multiple sharing options are available, including AC and non-AC configurations.</p><div class="actions"><a class="btn primary" href="#book">Check Availability ↗</a></div></div>
+<div><div class="price-table">
+<div class="row headrow"><span>Sharing</span><span>Non-AC</span><span>AC</span></div>
+<div class="row"><span>Single Sharing</span><span>₹8,000</span><span>₹10,000</span></div>
+<div class="row"><span>Double Sharing</span><span>₹8,000</span><span>₹10,000</span></div>
+<div class="row"><span>Three Sharing</span><span>₹7,000</span><span>₹8,000</span></div>
+<div class="row"><span>Four Sharing</span><span>₹6,000</span><span>₹7,000</span></div>
+</div><div class="note">*Prices shown are the current campaign figures supplied for this landing page. Confirm availability and final terms before booking.</div></div>
+</div></div></section>
+
+<section id="food"><div class="container">
+<div class="head"><div><div class="kicker">Hostel food</div><h2>Good food.<br>Everyday convenience.</h2></div><p>North & South Indian style meals with selected non-veg days and special dishes.</p></div>
+<div class="food">
+<div class="foodbox"><h3>3 Times Food</h3><p>Breakfast, lunch and dinner options designed to keep your daily routine simple.</p><div class="days"><div><span>Wednesday</span><b>Chicken Fried Rice</b></div><div><span>Friday</span><b>Egg Rice</b></div><div><span>Sunday</span><b>Chicken Biryani</b></div></div></div>
+<div class="foodbox"><h3>Everyday meal style</h3><p>Meal planning can include familiar South Indian and North Indian options such as rice, chapati, dosa and curry-based dishes.</p><div class="actions"><a class="btn secondary" href="#book">Ask About Today's Menu</a></div></div>
+</div></div></section>
+
+<section><div class="container">
+<div class="head"><div><div class="kicker">Hostel gallery</div><h2>See the lifestyle.</h2></div><p>Replace these visual placeholders with your actual building, room, food and facility photos.</p></div>
+<div class="gallery">
+<div class="photo"><div><strong>Hostel Building</strong><small>Add your exterior photo here</small></div></div>
+<div class="photo"><div><strong>Room Interior</strong><small>Add room image here</small></div></div>
+<div class="photo"><div><strong>Dining & Food</strong><small>Add food image here</small></div></div>
+<div class="photo"><div><strong>Facilities</strong><small>WiFi • Laundry • Lockers</small></div></div>
+</div></div></section>
+
+<section id="location"><div class="container">
+<div class="head"><div><div class="kicker">Location</div><h2>Close to where<br>you need to be.</h2></div></div>
+<div class="location">
+<div class="map">
+    <div>
+        <div class="pin">⌖</div>
+        <strong>RPR Gent's Hostel</strong>
+        <p style="color:#888">Near Hindustan University • Padur OMR</p>
+    </div>
+</div>
+<div class="locbox"><div class="kicker">Address</div><h3>Padur OMR, Chennai</h3><p>Conveniently positioned for students and professionals looking for hostel accommodation around the Hindustan University / OMR area.</p><div class="bullets"><span>Student-friendly location</span><span>Easy access to OMR</span><span>Rooms for different sharing needs</span><span>WhatsApp enquiry available</span></div><div class="actions"><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=RPR+Gents+Hostel+Padur+OMR" target="_blank" rel="noopener">Open in Google Maps ↗</a></div></div>
+</div></div></section>
+
+<section id="book"><div class="container"><div class="cta">
+<div class="kicker">Limited beds available</div><h2>Ready to find your room?</h2><p>Send your preferred sharing type and move-in date. We'll help you check the available options.</p>
+<div class="actions" style="justify-content:center"><a class="btn primary" href="https://wa.me/919700080503" target="_blank" rel="noopener">WhatsApp for Booking ↗</a><a class="btn secondary" href="tel:+919700080503">Call 9700080503</a></div>
+</div></div></section>
+</main>
+
+<footer><div class="container foot"><div>© <span id="year"></span> RPR Gent's Hostel. All rights reserved.</div><div><a href="index.html">Powered by RPR Digitals ↗</a></div></div></footer>
+<script>
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
